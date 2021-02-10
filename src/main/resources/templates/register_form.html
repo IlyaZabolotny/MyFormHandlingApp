@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>User registration</title>
+    <link href="../static/css/formstyle.css" th:href="@{/css/formstyle.css}" rel="stylesheet" />
+</head>
+
+<body>
+<div class="wrapper">
+    <div class="title">Регистрация пользователя</div>
+    <div class="inf">
+        <p>Для регистрации необходимо либо заполнить форму, либо загрузить данные из текстового файла. В качестве разделителя в файле использовать: |</p>
+    </div>
+    <form action="#" th:action="@{/register}" th:object="${user}" enctype="multipart/form-data" method="post" class="form">
+        <div class="inputfield">
+        <label>Фамилия:</label>
+        <input type="text" th:field="*{lastName}" class="input"/>
+            <span th:if="${#fields.hasErrors('lastName')}" th:errors="*{lastName}">First name error</span>
+        </div>
+
+        <div class="inputfield">
+        <label>Имя:</label>
+        <input type="text" th:field="*{firstName}" class="input"/>
+        <span th:if="${#fields.hasErrors('firstName')}" th:errors="*{firstName}">First name error</span>
+        </div>
+
+        <div class="inputfield">
+        <label>Отчество:</label>
+        <input type="text" th:field="*{patronymic}" class="input"/>
+        <span th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}">Patronymic error</span><br/>
+        </div>
+
+        <div class="inputfield">
+        <label>Возраст:</label>
+        <input type="text" th:field="*{age}" class="input"/>
+        <span th:if="${#fields.hasErrors('age')}" th:errors="*{age}">Age error</span>
+        </div>
+
+        <div class="inputfield">
+        <label>Уровень зарплаты:</label>
+        <input type="text" th:field="*{salary}" class="input"/>
+        <span th:if="${#fields.hasErrors('salary')}" th:errors="*{salary}">Salary error</span>
+        </div>
+
+        <div class="inputfield">
+        <label>Адрес электронной почты:</label>
+        <input type="text"  th:field="*{email}" class="input"/>
+        <span th:if="${#fields.hasErrors('email')}" th:errors="*{email}">E-mail error</span>
+        </div>
+
+        <div class="inputfield">
+        <label>Место работы:</label>
+        <input type="text" th:field="*{jobPlace}" class="input"/>
+        <span th:if="${#fields.hasErrors('jobPlace')}" th:errors="*{jobPlace}">Job-place error</span>
+        </div>
+
+        <div class="getfile">
+            <label>Загрузить данные из файла:</label>
+            <input type="file" name="file" class="btnuppload"/>
+        </div>
+        <button type="submit" class="btn">Регистрация</button>
+
+        Перейти на <a href="/">главную страницу</a>
+
+    </form>
+
+</div>
+
+</body>
+</html>

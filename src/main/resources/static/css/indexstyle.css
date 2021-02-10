@@ -1,0 +1,23 @@
+div {
+    text-align: center;
+    margin: 10px;
+}
+table {
+    width: 300px;
+    margin: auto;
+}
+td {
+    text-align: left;
+    padding: 5px;
+}
+button {
+    width: 100px;
+    height: 30px;
+    font-size: 15px;
+    margin-bottom: 20px;
+}
+a {
+    display: block;
+    text-align: center;
+    margin: 10px;
+}

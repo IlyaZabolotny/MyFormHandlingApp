@@ -1,0 +1,68 @@
+.wrapper {
+    max-width: 500px;
+    width: 100%;
+    margin: 20px auto;
+    padding: 30px;
+}
+.wrapper .title{
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    text-align: center;
+}
+.wrapper .inf {
+    font-size: 15px;
+    font-style: italic;
+    margin-bottom: 50px;
+}
+.wrapper .form{
+    width: 100%;
+}
+.wrapper .form .inputfield{
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+}
+
+.wrapper .form .inputfield label{
+    width: 200px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+
+.wrapper .form .btn{
+    padding: 8px 10px;
+    font-size: 20px;
+    border: 1px;
+    cursor: pointer;
+    border-radius: 0px;
+    outline: none;
+    margin-top:20px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+}
+.wrapper .form .getfile {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+.wrapper .form .getfile .btnuppload {
+    padding-left: 23%;
+    font-size: 14px;
+    border: 1px;
+    margin-top:20px;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 20px;
+}
+span {
+   color: red;
+    font-style: italic;
+    display: table-cell;
+    width: 500px;
+    margin: 5px;
+    text-align: left;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Home page</title>
+    <link href="../static/css/indexstyle.css" th:href="@{/css/indexstyle.css}" rel="stylesheet" />
+</head>
+<body>
+<div>
+    <h1>Добро пожаловать на главную страницу!</h1>
+</div>
+<div>
+    Получить данные о пользователе по фамилии и имени:
+</div>
+<form class="form" action="#" th:action="@{/}" th:object="${user}" method="post">
+    <table>
+        <tr>
+            <td>Фамилия:</td>
+            <td><input type="text" th:field="*{lastName}" /></td>
+        </tr>
+        <tr>
+            <td>Имя:</td>
+            <td><input type="text" th:field="*{firstName}" /></td>
+        </tr>
+        <tr>
+            <td><button type="submit">Поиск</button></td>
+        </tr>
+    </table>
+</form>
+
+<a href="/register">Зарегистрироваться</a>
+<a href="/contact">Отправить сообщение на почту пользователя</a>
+
+</body>
+</html>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta charset="UTF-8">
+    <title>Contact form</title>
+    <link href="../static/css/contactstyle.css" th:href="@{/css/contactstyle.css}" rel="stylesheet" />
+</head>
+<body>
+<h1>Отправить сообщение</h1>
+<div class="wrapper">
+    <form action="#" th:action="@{/contact}" method="post" class="form">
+        <div class="inputfield">
+            <label>Почтовый адрес пользователя:</label>
+            <input type="email" name="email" class="input"/>
+        </div>
+
+        <div class="inputfield">
+            <label>Тема:</label>
+            <input type="text" name="subject" class="input"/>
+        </div>
+
+        <div class="inputfield">
+            <label>Содержание:</label>
+            <textarea name="content" rows="5" required class="content"/></textarea>
+        </div>
+
+        <input type="submit" th:value="Отправить" class="btn">
+    </form>
+    Перейти на <a href="/">главную страницу</a>
+
+</div>
+</body>
+</html>
