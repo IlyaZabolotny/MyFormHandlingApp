@@ -1,11 +1,63 @@
 package com.mycompany.service;
 
 import com.mycompany.model.User;
-
-import java.io.PrintWriter;
+import org.springframework.web.multipart.MultipartFile;
+import java.io.*;
 import java.util.Scanner;
+import java.util.UUID;
 
 public class UserService {
+
+    private static String uploadPath = "E:/JavaProjects/uploads";
+
+    public static User checkUser(String lastName, String firstName) {
+        User user = null;
+        try (Scanner in = new Scanner(
+                new FileInputStream("users.txt"), "UTF-8")) {
+            user = UserService.userSearch(in, lastName, firstName);
+        }
+        catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+        return user;
+    }
+
+    public static User ReadFromMultipartFile(MultipartFile multipartFile) {
+        File uploadDir = new File(uploadPath);
+        if (!uploadDir.exists()) {
+            uploadDir.mkdir();
+        }
+        String uuidFile = UUID.randomUUID().toString();
+        String resultFileName = uploadPath + "/" + uuidFile + " " + multipartFile.getOriginalFilename();
+        File file = new File(resultFileName);
+        try {
+            multipartFile.transferTo(file);
+        } catch (IOException ioException) {
+            ioException.printStackTrace();
+        }
+        User uploadedUser = new User();
+        try (Scanner in = new Scanner(
+                new FileInputStream(file), "UTF-8")) {
+            uploadedUser = UserService.readUser(in);
+            try (PrintWriter out = new PrintWriter(new FileWriter("users.txt", true))) {
+                UserService.writeUser(out, uploadedUser);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            return uploadedUser;
+        } catch (FileNotFoundException fileNotFoundException) {
+            fileNotFoundException.printStackTrace();
+        }
+        return uploadedUser;
+    }
+
+    public static void handleFromData(User user) {
+        try (PrintWriter out = new PrintWriter(new FileWriter("users.txt", true))) {
+            UserService.writeUser(out, user);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     public static void writeUser(PrintWriter out, User user) {
         out.println(user.getLastName() + "|" + user.getFirstName() + "|" +

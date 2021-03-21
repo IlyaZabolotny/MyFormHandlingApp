@@ -1,7 +1,5 @@
 package com.mycompany.model;
 
-import org.springframework.web.multipart.MultipartFile;
-
 import javax.validation.constraints.*;
 
 public class User {
